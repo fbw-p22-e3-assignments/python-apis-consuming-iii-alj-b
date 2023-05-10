@@ -14,6 +14,8 @@ for company in r.json()["data"]:
         company["website"],
         sep = ", "
         )
+    
+print()
 
 # Task 2: Make GET call to get 50 persons with English names who were born after 1994:
 
@@ -28,9 +30,22 @@ for person in r.json()["data"]:
         end = " - "
         )
 
+print()
+
 # Task 3: Make GET call to get 5 German companies:
 
+api_call = 'companies?_quantity=5&_locale=de_DE'
+r = requests.get(API_URL + api_call)
+for company in r.json()["data"]:
+    print(
+        str(company["id"]),
+        {company["name"]},
+        company["country"],
+        sep = ", ",
+        end = " - "
+        )
 
+print()
 
 # Task 4: Make GET call to retrieve 60 credit cards of Spanish people:
 
