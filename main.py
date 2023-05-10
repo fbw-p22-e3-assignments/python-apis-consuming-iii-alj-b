@@ -15,7 +15,7 @@ for company in r.json()["data"]:
         sep = ", "
         )
     
-print()
+print("\n")
 
 # Task 2: Make GET call to get 50 persons with English names who were born after 1994:
 
@@ -30,7 +30,7 @@ for person in r.json()["data"]:
         end = " - "
         )
 
-print()
+print("\n")
 
 # Task 3: Make GET call to get 5 German companies:
 
@@ -39,17 +39,27 @@ r = requests.get(API_URL + api_call)
 for company in r.json()["data"]:
     print(
         str(company["id"]),
-        {company["name"]},
+        company["name"],
         company["country"],
         sep = ", ",
         end = " - "
         )
 
-print()
+print("\n")
 
 # Task 4: Make GET call to retrieve 60 credit cards of Spanish people:
 
+api_call = 'credit_cards?_quantity=60&_locale=es_ES'
+r = requests.get(API_URL + api_call)
+for card in r.json()["data"]:
+    print(
+        card["type"],
+        card["owner"],
+        sep = ", ",
+        end = " - "
+        )
 
+print("\n")
 
 # Task 5: Make GET call to retrieve 47 products that cost higher than 50€:
 
