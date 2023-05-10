@@ -77,4 +77,13 @@ print("\n")
 
 # Task 6: Make GET call to retrieve 10 Custom objects with "pokemon", "website", and "name" fields:
 
-
+api_call = 'custom?_quantity=10&customfield1=pokemon&customfield2=website&customfield3=name'
+r = requests.get(API_URL + api_call)
+for entry in r.json()["data"]:
+    print(
+        entry["customfield1"],
+        entry["customfield2"],
+        entry["customfield3"],
+        sep = ", ",
+        end = " - "
+        )
