@@ -63,7 +63,17 @@ print("\n")
 
 # Task 5: Make GET call to retrieve 47 products that cost higher than 50€:
 
+api_call = 'products?_quantity=47&_price_min=50.00'
+r = requests.get(API_URL + api_call)
+for product in r.json()["data"]:
+    print(
+        str(product["id"]),
+        f"{str(product['price'])}€",
+        sep = ", ",
+        end = " - "
+        )
 
+print("\n")
 
 # Task 6: Make GET call to retrieve 10 Custom objects with "pokemon", "website", and "name" fields:
 
