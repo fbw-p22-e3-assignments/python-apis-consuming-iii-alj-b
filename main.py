@@ -17,7 +17,16 @@ for company in r.json()["data"]:
 
 # Task 2: Make GET call to get 50 persons with English names who were born after 1994:
 
-
+api_call = 'persons?_quantity=50&_locale=en_EN&_birthday_start=1994-01-01'
+r = requests.get(API_URL + api_call)
+for person in r.json()["data"]:
+    print(
+        str(person["id"]),
+        f'{person["firstname"]} {person["lastname"]}' ,
+        person["birthday"],
+        sep = ", ",
+        end = " - "
+        )
 
 # Task 3: Make GET call to get 5 German companies:
 
